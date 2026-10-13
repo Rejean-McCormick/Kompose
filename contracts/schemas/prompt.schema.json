@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/prompt.schema.json",
+  "title": "KOMPOSE prompt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "on_event",
+    "audience",
+    "body",
+    "action",
+    "dedup_scope",
+    "requires"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "on_event": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "enum": [
+        "participant",
+        "gardien",
+        "demandeur",
+        "enseignant",
+        "groupe"
+      ]
+    },
+    "body": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dedup_scope": {
+      "const": "event_recipient"
+    },
+    "requires": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

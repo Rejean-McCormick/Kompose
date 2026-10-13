@@ -1,0 +1,49 @@
+{
+  "prompts": [
+    {
+      "id": "PR-DEPART",
+      "on_event": "session.roles_publies",
+      "audience": "participant",
+      "body": "Ton rôle est disponible. Ouvre ta première mission dans KOMPOSE.",
+      "action": "open_missions",
+      "dedup_scope": "event_recipient",
+      "requires": []
+    },
+    {
+      "id": "PR-GARDE",
+      "on_event": "kristal.garde_attribuee",
+      "audience": "gardien",
+      "body": "Tu veilles sur un Kristal. Aide les enquêteurs à le retrouver et partage son accès selon les consignes.",
+      "action": "open_guardian_panel",
+      "dedup_scope": "event_recipient",
+      "requires": []
+    },
+    {
+      "id": "PR-DEMANDE",
+      "on_event": "kristal.acces_demande",
+      "audience": "gardien",
+      "body": "Une demande d’accès à ton Kristal a été reçue. Tu peux la traiter ou solliciter l’enseignant.",
+      "action": "open_access_requests",
+      "dedup_scope": "event_recipient",
+      "requires": []
+    },
+    {
+      "id": "PR-ACCES",
+      "on_event": "kristal.acces_accorde",
+      "audience": "demandeur",
+      "body": "Un Kristal est accessible. Choisis un thème et une question; consulte ensuite les sources et limites.",
+      "action": "open_kristal_reader",
+      "dedup_scope": "event_recipient",
+      "requires": []
+    },
+    {
+      "id": "PR-COMPARER",
+      "on_event": "kristal.question_consultee",
+      "audience": "participant",
+      "body": "Tu as consulté une réponse. Quelles sources l’appuient et que ne permet-elle pas de conclure ?",
+      "action": "open_comparison_mission",
+      "dedup_scope": "event_recipient",
+      "requires": []
+    }
+  ]
+}

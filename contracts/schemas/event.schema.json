@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/event.schema.json",
+  "title": "KOMPOSE event",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "event_id",
+    "schema_version",
+    "name",
+    "aggregate_id",
+    "session_id",
+    "occurred_at",
+    "payload"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aggregate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "correlation_id": {
+      "type": "string"
+    },
+    "session_version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "payload": {
+      "type": "object"
+    }
+  }
+}

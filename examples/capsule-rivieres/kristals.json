@@ -1,0 +1,131 @@
+{
+  "kristals": [
+    {
+      "id": "KR-ARCHIVES",
+      "version": "0.1-demo",
+      "title": "Archives administratives — démonstration",
+      "status": "demo",
+      "perspective": {
+        "type": "archives_coloniales",
+        "attribution": "Exemple fictif de document administratif, sans auteur réel",
+        "period": "Non applicable — démonstration",
+        "territory": "Lieu fictif",
+        "context": "Le texte enseigne uniquement une méthode de critique de source.",
+        "community_permission_required": false
+      },
+      "sources": [
+        {
+          "id": "SRC-DEMO-A",
+          "title": "Référence fictive non historique",
+          "provenance": "Démonstration interne",
+          "verified": false,
+          "rights_cleared": false,
+          "citation": "NE PAS PUBLIER"
+        }
+      ],
+      "editorial_review": {
+        "status": "pending",
+        "reviewer_ref": "DEMO-EDITOR-NON-VALIDE",
+        "reviewed_at": null,
+        "community_review_status": "pending"
+      },
+      "topics": [
+        {
+          "id": "TERRITOIRE",
+          "label": "Territoire",
+          "questions": [
+            {
+              "id": "OCCUPANTS",
+              "label": "Quelles informations manquent pour identifier les occupants ?",
+              "answer": "Exemple fictif : pour identifier les groupes et leurs liens avec un territoire, il faut des sources datées, situées et attribuées. Cette démonstration ne fournit aucune réponse historique.",
+              "source_refs": [
+                "SRC-DEMO-A"
+              ],
+              "limitations": "Aucun lieu ni peuple réel; démonstration de méthode seulement."
+            },
+            {
+              "id": "CARTE",
+              "label": "Comment critiquer une carte ancienne ?",
+              "answer": "Exemple fictif : relever l’auteur, la date, la légende, l’usage prévu et les absences de la carte avant toute conclusion.",
+              "source_refs": [
+                "SRC-DEMO-A"
+              ],
+              "limitations": "Ne constitue pas une analyse d’une carte réelle."
+            }
+          ]
+        },
+        {
+          "id": "RELATIONS",
+          "label": "Relations",
+          "questions": [
+            {
+              "id": "ALLIANCES",
+              "label": "Quels indices rechercher pour étudier une alliance ?",
+              "answer": "Exemple fictif : comparer correspondances, témoignages attribués, dates et enjeux; aucune alliance précise n’est décrite ici.",
+              "source_refs": [
+                "SRC-DEMO-A"
+              ],
+              "limitations": "Pas de relation historique réelle documentée."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KR-PERSPECTIVES",
+      "version": "0.1-demo",
+      "title": "Voix et perspectives situées — démonstration",
+      "status": "demo",
+      "perspective": {
+        "type": "analyse_methodologique",
+        "attribution": "Métadiscours pédagogique fictif; aucune nation n’est représentée",
+        "period": "Non applicable — démonstration",
+        "territory": "Lieu fictif",
+        "context": "Préparation d’une future capsule à co-construire avec les nations concernées.",
+        "community_permission_required": false
+      },
+      "sources": [
+        {
+          "id": "SRC-DEMO-B",
+          "title": "Référence pédagogique fictive",
+          "provenance": "Démonstration interne",
+          "verified": false,
+          "rights_cleared": false,
+          "citation": "NE PAS PUBLIER"
+        }
+      ],
+      "editorial_review": {
+        "status": "pending",
+        "reviewer_ref": "DEMO-EDITOR-NON-VALIDE",
+        "reviewed_at": null,
+        "community_review_status": "pending"
+      },
+      "topics": [
+        {
+          "id": "SOURCES",
+          "label": "Sources",
+          "questions": [
+            {
+              "id": "ATTRIBUTION",
+              "label": "Pourquoi identifier précisément la personne ou la communauté qui parle ?",
+              "answer": "Exemple fictif : une source doit être attribuée précisément; regrouper toutes les nations sous une seule voix efface leurs différences. Aucune parole autochtone n’est simulée dans cette capsule.",
+              "source_refs": [
+                "SRC-DEMO-B"
+              ],
+              "limitations": "Texte de méthode, non témoignage ni savoir communautaire."
+            },
+            {
+              "id": "DIVERGENCES",
+              "label": "Comment comparer des documents divergents ?",
+              "answer": "Exemple fictif : étudier provenance, rapports de pouvoir, types de preuves et limites sans supposer une équivalence des positions.",
+              "source_refs": [
+                "SRC-DEMO-B"
+              ],
+              "limitations": "Aucun événement historique concret n’est représenté."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

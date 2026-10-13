@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/capsule.schema.json",
+  "title": "KOMPOSE capsule",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "title",
+    "status",
+    "subject",
+    "join_code_policy",
+    "roles",
+    "kristals",
+    "missions",
+    "assignment",
+    "narrative"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "ready",
+        "retired"
+      ]
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "join_code_policy": {
+      "type": "object",
+      "properties": {
+        "ttl_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "requires_school_identity": {
+          "const": true
+        }
+      },
+      "required": [
+        "ttl_minutes",
+        "requires_school_identity"
+      ]
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "kristals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "missions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "assignment": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "tiers_choix",
+            "attribution_guidee"
+          ]
+        },
+        "top_fraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rounding": {
+          "const": "ceil"
+        },
+        "teacher_approval_required": {
+          "const": true
+        },
+        "fallback_mode": {
+          "const": "attribution_guidee"
+        }
+      },
+      "required": [
+        "mode",
+        "top_fraction",
+        "rounding",
+        "teacher_approval_required",
+        "fallback_mode"
+      ]
+    },
+    "narrative": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

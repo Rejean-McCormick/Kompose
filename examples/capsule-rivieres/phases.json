@@ -1,0 +1,29 @@
+{
+  "phases": [
+    {
+      "id": "exploration",
+      "label": "Explorer",
+      "order": 0,
+      "blocking_missions": [],
+      "accessible_fallback": "Informations en format adapté"
+    },
+    {
+      "id": "enquete",
+      "label": "Enquêter",
+      "order": 1,
+      "blocking_missions": [
+        "MIS-RECHERCHE"
+      ],
+      "accessible_fallback": "Discussion guidée par l’enseignant"
+    },
+    {
+      "id": "synthese",
+      "label": "Synthétiser",
+      "order": 2,
+      "blocking_missions": [
+        "MIS-COMPARAISON"
+      ],
+      "accessible_fallback": "Restitution orale, écrite ou visuelle"
+    }
+  ]
+}

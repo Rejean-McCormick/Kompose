@@ -1,0 +1,23 @@
+{
+  "adapter_id": "kor-demonstration",
+  "provider": "KOR (application externe facultative)",
+  "contract_version": "0.2.0",
+  "capabilities": [
+    "render_prompts",
+    "render_kristals",
+    "receive_events",
+    "student_progress"
+  ],
+  "data_policy": {
+    "student_pii_export": false,
+    "private_diagnostic_export": false,
+    "private_teacher_constraints_export": false
+  },
+  "event_subscriptions": [
+    "session.roles_publies",
+    "kristal.acces_accorde",
+    "session.phase_changee",
+    "session.suspendue",
+    "session.reprise"
+  ]
+}

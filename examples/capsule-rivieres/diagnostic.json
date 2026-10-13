@@ -1,0 +1,19 @@
+{
+  "id": "DIAG-REF",
+  "version": "0.1-demo",
+  "dimensions": [
+    "lecture_de_sources",
+    "repérage_spatial",
+    "collaboration",
+    "raisonnement"
+  ],
+  "adaptive_items": true,
+  "comparability_check_required": true,
+  "allowed_accommodations": [
+    "temps_ajuste",
+    "lecture_audio",
+    "consignes_simplifiees",
+    "navigation_clavier"
+  ],
+  "default_on_invalid": "attribution_guidee"
+}

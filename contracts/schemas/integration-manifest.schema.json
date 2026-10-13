@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/integration-manifest.schema.json",
+  "title": "KOMPOSE integration-manifest",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "adapter_id",
+    "provider",
+    "contract_version",
+    "capabilities",
+    "data_policy"
+  ],
+  "properties": {
+    "adapter_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "render_prompts",
+          "render_kristals",
+          "join_session",
+          "receive_events",
+          "student_progress",
+          "teacher_dashboard"
+        ]
+      }
+    },
+    "data_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "student_pii_export",
+        "private_diagnostic_export",
+        "private_teacher_constraints_export"
+      ],
+      "properties": {
+        "student_pii_export": {
+          "const": false
+        },
+        "private_diagnostic_export": {
+          "const": false
+        },
+        "private_teacher_constraints_export": {
+          "const": false
+        }
+      }
+    },
+    "event_subscriptions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

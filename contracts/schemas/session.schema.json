@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/session.schema.json",
+  "title": "KOMPOSE session",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "capsule_id",
+    "capsule_version",
+    "state",
+    "participants",
+    "assignment_mode",
+    "content_versions",
+    "teacher_approval"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capsule_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capsule_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "brouillon",
+        "pret",
+        "inscriptions",
+        "diagnostic",
+        "attribution",
+        "validation",
+        "aventure",
+        "terminee",
+        "annulee",
+        "suspendue"
+      ]
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "assignment_mode": {
+      "type": "string",
+      "enum": [
+        "tiers_choix",
+        "attribution_guidee"
+      ]
+    },
+    "content_versions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "teacher_approval": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "paused_from": {
+      "type": "string",
+      "enum": [
+        "inscriptions",
+        "diagnostic",
+        "attribution",
+        "validation",
+        "aventure"
+      ]
+    },
+    "phase_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

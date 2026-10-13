@@ -1,0 +1,75 @@
+{
+  "missions": [
+    {
+      "id": "MIS-RECHERCHE",
+      "title": "Identifier la provenance",
+      "objective": "Trouver quel document répond à une question et d’où il vient.",
+      "trigger": "session.roles_publies",
+      "completion_event": "mission.validee",
+      "related_roles": [
+        "ROLE-CARTOGRAPHE",
+        "ROLE-ENQUETEUR"
+      ],
+      "related_kristals": [
+        "KR-ARCHIVES"
+      ],
+      "accessibility_alternative": "Utiliser une fiche synthèse imprimée ou adaptée.",
+      "depends_on": []
+    },
+    {
+      "id": "MIS-DEMANDE",
+      "title": "Rencontrer un gardien",
+      "objective": "Demander l’accès à un Kristal et sélectionner une question.",
+      "trigger": "kristal.garde_attribuee",
+      "completion_event": "mission.validee",
+      "related_roles": [
+        "ROLE-MESSAGER",
+        "ROLE-CONSERVATEUR"
+      ],
+      "related_kristals": [
+        "KR-ARCHIVES",
+        "KR-PERSPECTIVES"
+      ],
+      "accessibility_alternative": "Demande médiée par l’enseignant ou accès différé automatique.",
+      "depends_on": []
+    },
+    {
+      "id": "MIS-COMPARAISON",
+      "title": "Comparer les traces",
+      "objective": "Distinguer ce que chaque source permet et ne permet pas de conclure.",
+      "trigger": "kristal.question_consultee",
+      "completion_event": "mission.validee",
+      "related_roles": [
+        "ROLE-ARCHIVISTE",
+        "ROLE-CHERCHEUSE"
+      ],
+      "related_kristals": [
+        "KR-ARCHIVES",
+        "KR-PERSPECTIVES"
+      ],
+      "accessibility_alternative": "Deux tableaux de sources à remplir hors ligne.",
+      "depends_on": [
+        "MIS-RECHERCHE",
+        "MIS-DEMANDE"
+      ]
+    },
+    {
+      "id": "MIS-SYNTHESE",
+      "title": "Faire la synthèse",
+      "objective": "Présenter une conclusion appuyée sur des sources identifiées et ses limites.",
+      "trigger": "mission.validee",
+      "completion_event": "mission.validee",
+      "related_roles": [
+        "ROLE-SCRIPTE",
+        "ROLE-ILLUSTRATEUR"
+      ],
+      "related_kristals": [
+        "KR-PERSPECTIVES"
+      ],
+      "accessibility_alternative": "Présentation orale, visuelle ou enregistrée au choix.",
+      "depends_on": [
+        "MIS-COMPARAISON"
+      ]
+    }
+  ]
+}

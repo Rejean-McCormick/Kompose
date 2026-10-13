@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/teacher-constraint.schema.json",
+  "title": "KOMPOSE teacher-constraint",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "session_id",
+    "participant_ids",
+    "type",
+    "strength",
+    "scope",
+    "reason_private",
+    "expires_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "participant_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "separation_securite",
+        "favoriser_cooperation",
+        "eviter_cooperation",
+        "adaptation_accessibilite"
+      ]
+    },
+    "strength": {
+      "type": "string",
+      "enum": [
+        "hard",
+        "soft"
+      ]
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reason_private": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expires_at": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

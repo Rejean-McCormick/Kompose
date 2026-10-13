@@ -1,0 +1,12 @@
+{
+  "event_id": "EV-DEMO-001",
+  "schema_version": 1,
+  "name": "session.roles_publies",
+  "aggregate_id": "SESS-DEMO-001",
+  "session_id": "SESS-DEMO-001",
+  "occurred_at": "2026-10-12T12:00:00Z",
+  "session_version": 6,
+  "payload": {
+    "assignment_batch_id": "AB-DEMO-001"
+  }
+}

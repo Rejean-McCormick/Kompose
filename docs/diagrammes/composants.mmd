@@ -1,0 +1,14 @@
+flowchart TB
+    EC[Console enseignant] --> AP[API / Port KOMPOSE]
+    EL[Entry Door Chromebook] --> AP
+    UI[KOR ou autre interface narrative] <--> AP
+    AP --> S[Gestion session et phases]
+    AP --> A[Politique casting et validations]
+    AP --> G[Permissions Kristals]
+    S --> OUT[(Outbox / événements)]
+    S --> DEP[Dépendances de missions]
+    OUT --> UI
+    A --> DIA[Port diagnostic externe]
+    AP --> IAM[Port identité scolaire]
+    G --> DOC[Registre de contenus vérifiés]
+    S --> DB[(Stockage session versionné)]

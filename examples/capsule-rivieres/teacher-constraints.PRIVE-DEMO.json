@@ -1,0 +1,31 @@
+{
+  "warning": "DONNEES FICTIVES, POUR TESTS DE STRUCTURE UNIQUEMENT. NE PAS EXPORTER AUX ELEVES.",
+  "constraints": [
+    {
+      "id": "TC-001",
+      "session_id": "SESS-DEMO-001",
+      "participant_ids": [
+        "P-003",
+        "P-014"
+      ],
+      "type": "separation_securite",
+      "strength": "hard",
+      "scope": "collaboration_directe_sur_cette_capsule",
+      "reason_private": "Simulation de contrainte de protection, sans cas réel.",
+      "expires_at": "2026-11-30T23:59:59Z"
+    },
+    {
+      "id": "TC-002",
+      "session_id": "SESS-DEMO-001",
+      "participant_ids": [
+        "P-005",
+        "P-006"
+      ],
+      "type": "favoriser_cooperation",
+      "strength": "soft",
+      "scope": "equipe_de_synthese",
+      "reason_private": "Simulation d’une préférence pédagogique, sans cas réel.",
+      "expires_at": "2026-11-30T23:59:59Z"
+    }
+  ]
+}

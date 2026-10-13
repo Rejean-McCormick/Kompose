@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant T as Enseignant
+    participant E as Élève
+    participant K as KOMPOSE
+    participant I as Identité scolaire
+    participant U as KOR / autre UI
+    T->>K: Configure et ouvre session
+    E->>K: Code de capsule
+    K->>I: Vérifier autorisation scolaire
+    I-->>K: Identité de session autorisée
+    K-->>E: Rôles publics et diagnostic
+    E->>K: Diagnostic adapté
+    K->>T: Prévisualisation privée casting
+    T->>K: Approbation et publication
+    K-->>U: Événement rôles publiés
+    U-->>E: Missions, Kristals et prompts
+    T->>K: Synchroniser phase / pause éventuelle
+    K-->>U: État de session projeté
+    T->>K: Clôturer et archiver

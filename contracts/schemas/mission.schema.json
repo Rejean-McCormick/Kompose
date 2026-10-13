@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/mission.schema.json",
+  "title": "KOMPOSE mission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "objective",
+    "trigger",
+    "completion_event",
+    "related_roles",
+    "related_kristals",
+    "accessibility_alternative"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trigger": {
+      "type": "string",
+      "minLength": 1
+    },
+    "completion_event": {
+      "type": "string",
+      "minLength": 1
+    },
+    "related_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "related_kristals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "accessibility_alternative": {
+      "type": "string",
+      "minLength": 1
+    },
+    "depends_on": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

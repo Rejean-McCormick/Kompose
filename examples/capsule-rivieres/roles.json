@@ -1,0 +1,404 @@
+{
+  "roles": [
+    {
+      "id": "ROLE-CARTOGRAPHE",
+      "title": "Cartographe",
+      "description": "Étudier les représentations du territoire.",
+      "capacity": 1,
+      "skills": [
+        "analyse"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-ARCHIVISTE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-ARCHIVISTE",
+      "title": "Archiviste",
+      "description": "Distinguer document et interprétation.",
+      "capacity": 1,
+      "skills": [
+        "sources"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-MESSAGER"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-MESSAGER",
+      "title": "Messager",
+      "description": "Transmettre des demandes de recherche.",
+      "capacity": 1,
+      "skills": [
+        "communication"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-MEDIATRICE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-MEDIATRICE",
+      "title": "Médiatrice",
+      "description": "Faciliter un échange respectueux.",
+      "capacity": 1,
+      "skills": [
+        "cooperation"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-ENQUETEUR"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-ENQUETEUR",
+      "title": "Enquêteur",
+      "description": "Formuler des questions de recherche.",
+      "capacity": 1,
+      "skills": [
+        "enquete"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-CHRONIQUEUSE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-CHRONIQUEUSE",
+      "title": "Chroniqueuse",
+      "description": "Ordonnancer des événements sans les inventer.",
+      "capacity": 1,
+      "skills": [
+        "chronologie"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-GEOGRAPHE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-GEOGRAPHE",
+      "title": "Géographe",
+      "description": "Mettre en relation lieu et contexte.",
+      "capacity": 1,
+      "skills": [
+        "analyse"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-LIBRAIRE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-LIBRAIRE",
+      "title": "Libraire",
+      "description": "Retrouver des références documentaires.",
+      "capacity": 1,
+      "skills": [
+        "sources"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-OBSERVATRICE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-OBSERVATRICE",
+      "title": "Observatrice",
+      "description": "Distinguer observation et supposition.",
+      "capacity": 1,
+      "skills": [
+        "analyse"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-TRADUCTEUR"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-TRADUCTEUR",
+      "title": "Traducteur",
+      "description": "Repérer les enjeux de traduction de sources.",
+      "capacity": 1,
+      "skills": [
+        "langue"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-DIPLOMATE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-DIPLOMATE",
+      "title": "Diplomate",
+      "description": "Étudier les conditions d’une alliance.",
+      "capacity": 1,
+      "skills": [
+        "cooperation"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-GUIDE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-GUIDE",
+      "title": "Guide",
+      "description": "Orienter la recherche dans les archives.",
+      "capacity": 1,
+      "skills": [
+        "communication"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-CHERCHEUSE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-CHERCHEUSE",
+      "title": "Chercheuse",
+      "description": "Vérifier l’appui documentaire d’une réponse.",
+      "capacity": 1,
+      "skills": [
+        "sources"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-TEMOIN_DES_SOURCES"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-TEMOIN_DES_SOURCES",
+      "title": "Analyste de témoignages",
+      "description": "Qualifier une source sans incarner un témoin.",
+      "capacity": 1,
+      "skills": [
+        "sources"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-HORLOGER"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-HORLOGER",
+      "title": "Chronologue",
+      "description": "Construire une chronologie annotée.",
+      "capacity": 1,
+      "skills": [
+        "chronologie"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-COLLECTRICE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-COLLECTRICE",
+      "title": "Collectrice d’indices",
+      "description": "Associer chaque indice à une preuve.",
+      "capacity": 1,
+      "skills": [
+        "enquete"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-ARBITRE_DES_PREUVES"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-ARBITRE_DES_PREUVES",
+      "title": "Examinateur des preuves",
+      "description": "Vérifier les conclusions et leurs limites.",
+      "capacity": 1,
+      "skills": [
+        "analyse"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-ILLUSTRATEUR"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-ILLUSTRATEUR",
+      "title": "Illustrateur",
+      "description": "Produire une synthèse visuelle.",
+      "capacity": 1,
+      "skills": [
+        "creation"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-SCRIPTE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-SCRIPTE",
+      "title": "Scripte",
+      "description": "Consigner les questions encore ouvertes.",
+      "capacity": 1,
+      "skills": [
+        "langue"
+      ],
+      "mission_refs": [
+        "MIS-RECHERCHE",
+        "MIS-COMPARAISON"
+      ],
+      "collaborates_with": [
+        "ROLE-CONSERVATEUR"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    },
+    {
+      "id": "ROLE-CONSERVATEUR",
+      "title": "Conservateur",
+      "description": "Veiller à la transmission des sources.",
+      "capacity": 1,
+      "skills": [
+        "communication"
+      ],
+      "mission_refs": [
+        "MIS-DEMANDE",
+        "MIS-SYNTHESE"
+      ],
+      "collaborates_with": [
+        "ROLE-CARTOGRAPHE"
+      ],
+      "accessibility": [
+        "texte_adapte",
+        "audio_si_disponible"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "CAP-RIVIERES",
+  "version": "0.1-demo",
+  "title": "La rivière des témoignages — démonstration",
+  "status": "draft",
+  "subject": "Méthode historique et dialogue documentaire, sans faits historiques préapprouvés",
+  "join_code_policy": {
+    "ttl_minutes": 30,
+    "requires_school_identity": true
+  },
+  "roles": [
+    "ROLE-CARTOGRAPHE",
+    "ROLE-ARCHIVISTE",
+    "ROLE-MESSAGER",
+    "ROLE-MEDIATRICE",
+    "ROLE-ENQUETEUR",
+    "ROLE-CHRONIQUEUSE",
+    "ROLE-GEOGRAPHE",
+    "ROLE-LIBRAIRE",
+    "ROLE-OBSERVATRICE",
+    "ROLE-TRADUCTEUR",
+    "ROLE-DIPLOMATE",
+    "ROLE-GUIDE",
+    "ROLE-CHERCHEUSE",
+    "ROLE-TEMOIN_DES_SOURCES",
+    "ROLE-HORLOGER",
+    "ROLE-COLLECTRICE",
+    "ROLE-ARBITRE_DES_PREUVES",
+    "ROLE-ILLUSTRATEUR",
+    "ROLE-SCRIPTE",
+    "ROLE-CONSERVATEUR"
+  ],
+  "kristals": [
+    "KR-ARCHIVES",
+    "KR-PERSPECTIVES"
+  ],
+  "missions": [
+    "MIS-RECHERCHE",
+    "MIS-DEMANDE",
+    "MIS-COMPARAISON",
+    "MIS-SYNTHESE"
+  ],
+  "assignment": {
+    "mode": "tiers_choix",
+    "top_fraction": 0.3333333333333333,
+    "rounding": "ceil",
+    "teacher_approval_required": true,
+    "fallback_mode": "attribution_guidee"
+  },
+  "narrative": "Des chercheurs réunissent des traces partielles. Leur mission est de comprendre les limites des sources et de comparer des perspectives situées."
+}

@@ -1,0 +1,286 @@
+openapi: 3.1.0
+info:
+  title: KOMPOSE — API de référence d’orchestration pédagogique
+  version: 0.2.0
+  description: |
+    API proposée, non déployée. Sécurité côté serveur impérative;
+    les retours aux élèves excluent score global, relations et contraintes privées.
+servers:
+  - url: https://kompose.invalid/api/v1
+    description: URL fictive de contrat (non résolue)
+security:
+  - schoolSession: []
+paths:
+  /sessions/join:
+    post:
+      summary: Rejoindre avec code temporaire et identité scolaire authentifiée
+      operationId: joinSession
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [join_code]
+              properties:
+                join_code: {type: string, minLength: 4, maxLength: 32}
+      responses:
+        '200':
+          description: Identité pseudonyme de cette séance
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [session_id, participant_id, state]
+                properties:
+                  session_id: {type: string}
+                  participant_id: {type: string}
+                  state: {type: string}
+        '403': {description: Jonction interdite}
+        '410': {description: Code expiré}
+  /sessions/{sessionId}/snapshot:
+    get:
+      summary: État public minimal autorisé de la session et phase courante
+      operationId: getSessionSnapshot
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+      responses:
+        '200':
+          description: Vue filtrée selon les droits du demandeur; jamais de contrainte enseignant
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [session_id, state, version]
+                properties:
+                  session_id: {type: string}
+                  state: {type: string}
+                  version: {type: integer, minimum: 0}
+                  phase_id: {type: string}
+        '403': {description: Lecture non autorisée}
+        '404': {description: Séance inexistante ou non visible}
+  /teacher/sessions/{sessionId}/commands:
+    post:
+      summary: Transitions du cycle de vie, sous autorisation enseignante et contrôle de version
+      operationId: transitionSession
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+        - $ref: '#/components/parameters/idempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [action, expected_session_version]
+              properties:
+                action:
+                  type: string
+                  enum: [prepare, open, close_enrollment, close_diagnostic, preview_assignment, revise_assignment, publish_assignment, pause, resume, finish, cancel]
+                expected_session_version: {type: integer, minimum: 0}
+      responses:
+        '200': {description: Nouvel état et événement, sans données privées}
+        '403': {description: Enseignant non autorisé}
+        '409': {description: Version périmée ou précondition refusée}
+  /teacher/sessions/{sessionId}/phases/advance:
+    post:
+      summary: Synchroniser le groupe sur la phase suivante
+      operationId: advanceSessionPhase
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+        - $ref: '#/components/parameters/idempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [next_phase_id, expected_session_version]
+              properties:
+                next_phase_id: {type: string, minLength: 1}
+                expected_session_version: {type: integer, minimum: 0}
+                pedagogical_override: {type: boolean, default: false}
+      responses:
+        '200': {description: Phase et événement mis à jour}
+        '403': {description: Enseignant non autorisé}
+        '409': {description: Prérequis ou version invalides}
+  /teacher/sessions/{sessionId}/kristals/{kristalId}/guardians/transfer:
+    post:
+      summary: Transfert audité de la garde, sans modifier le savoir
+      operationId: transferGuardian
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+        - $ref: '#/components/parameters/kristalId'
+        - $ref: '#/components/parameters/idempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [from_participant_id, to_participant_id, expected_session_version]
+              properties:
+                from_participant_id: {type: string}
+                to_participant_id: {type: string}
+                expected_session_version: {type: integer, minimum: 0}
+      responses:
+        '200': {description: Nouveau gardien et événement audité}
+        '403': {description: Enseignant non autorisé}
+        '409': {description: Gardien indisponible, droit ou version invalide}
+  /sessions/{sessionId}/roles:
+    get:
+      summary: Catalogue de rôles accessibles
+      operationId: listRoles
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+      responses:
+        '200':
+          description: Rôles publics sans données diagnostiques
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required: [id, title, description, available]
+                  properties:
+                    id: {type: string}
+                    title: {type: string}
+                    description: {type: string}
+                    available: {type: boolean}
+  /sessions/{sessionId}/role-choices:
+    post:
+      summary: Choisir son rôle pendant son tour
+      operationId: chooseRole
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+        - $ref: '#/components/parameters/idempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [role_id, expected_session_version]
+              properties:
+                role_id: {type: string}
+                expected_session_version: {type: integer, minimum: 0}
+      responses:
+        '200': {description: Choix réservé, en attente de validation finale}
+        '403': {description: Pas le tour / contrainte incompatible (motif masqué)}
+        '409': {description: Rôle indisponible ou version périmée}
+  /sessions/{sessionId}/kristals/{kristalId}/access-requests:
+    post:
+      summary: Demander un accès documentaire
+      operationId: requestKristalAccess
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+        - $ref: '#/components/parameters/kristalId'
+        - $ref: '#/components/parameters/idempotencyKey'
+      responses:
+        '202': {description: Demande enregistrée; aucune garantie de déblocage immédiat}
+        '403': {description: Non autorisé}
+  /sessions/{sessionId}/kristals/{kristalId}/questions:
+    get:
+      summary: Lister les questions autorisées selon la version épinglée
+      operationId: listKristalQuestions
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+        - $ref: '#/components/parameters/kristalId'
+      responses:
+        '200':
+          description: Thèmes et questions de lecture
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [kristal_id, version, topics]
+                properties:
+                  kristal_id: {type: string}
+                  version: {type: string}
+                  topics:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id: {type: string}
+                        label: {type: string}
+                        questions:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id: {type: string}
+                              label: {type: string}
+        '403': {description: Accès refusé}
+  /sessions/{sessionId}/kristals/{kristalId}/answers/{questionId}:
+    get:
+      summary: Résoudre exactement une question préexistante sans IA
+      operationId: readKristalAnswer
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+        - $ref: '#/components/parameters/kristalId'
+        - name: questionId
+          in: path
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Réponse documentaire avec sources et limites
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [kristal_id, version, question_id, answer, source_refs, limitations]
+                properties:
+                  kristal_id: {type: string}
+                  version: {type: string}
+                  question_id: {type: string}
+                  answer: {type: string}
+                  source_refs: {type: array, items: {type: string}}
+                  limitations: {type: string}
+        '403': {description: Droit de lecture insuffisant}
+        '404': {description: Question inconnue ou masquée}
+        '423': {description: Kristal non publié ou retiré}
+  /teacher/sessions/{sessionId}/assignments/preview:
+    post:
+      summary: Prévisualiser sans publier
+      operationId: previewAssignment
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+      responses:
+        '200': {description: Projet d'affectation, alertes privées et explications}
+        '409': {description: Mesures incomparables ou contraintes incompatibles}
+  /teacher/sessions/{sessionId}/assignments/publish:
+    post:
+      summary: Publication explicite par enseignant autorisé
+      operationId: publishAssignments
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+        - $ref: '#/components/parameters/idempotencyKey'
+      responses:
+        '200': {description: Affectations figées et événements émis}
+        '403': {description: Enseignant non autorisé}
+        '409': {description: Validation ou contraintes manquantes}
+components:
+  securitySchemes:
+    schoolSession:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+  parameters:
+    sessionId:
+      name: sessionId
+      in: path
+      required: true
+      schema: {type: string}
+    kristalId:
+      name: kristalId
+      in: path
+      required: true
+      schema: {type: string}
+    idempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: {type: string, minLength: 8, maxLength: 128}

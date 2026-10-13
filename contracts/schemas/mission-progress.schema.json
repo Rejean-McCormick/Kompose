@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/mission-progress.schema.json",
+  "title": "KOMPOSE mission-progress",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "session_id",
+    "participant_id",
+    "mission_id",
+    "status",
+    "version"
+  ],
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "participant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mission_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "locked",
+        "available",
+        "in_progress",
+        "completed",
+        "waived"
+      ]
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

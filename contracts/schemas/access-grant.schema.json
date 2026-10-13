@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/access-grant.schema.json",
+  "title": "KOMPOSE access-grant",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "session_id",
+    "kristal_id",
+    "kristal_version",
+    "recipient_id",
+    "granted_by",
+    "expires_at",
+    "revoked"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kristal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kristal_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recipient_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "granted_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expires_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revoked": {
+      "type": "boolean"
+    }
+  }
+}

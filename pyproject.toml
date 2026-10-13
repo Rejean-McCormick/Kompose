@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kompose-reference"
+version = "0.2.0"
+description = "KOMPOSE : orchestration pédagogique et narrative, contrats et simulation"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["jsonschema>=4.21,<5", "PyYAML>=6,<7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+kompose = "kompose.cli:main"

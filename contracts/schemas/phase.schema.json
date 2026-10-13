@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/phase.schema.json",
+  "title": "KOMPOSE phase",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "id",
+    "label",
+    "order",
+    "blocking_missions"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "blocking_missions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "accessible_fallback": {
+      "type": "string"
+    }
+  }
+}

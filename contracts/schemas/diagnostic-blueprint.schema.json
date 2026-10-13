@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/diagnostic-blueprint.schema.json",
+  "title": "KOMPOSE diagnostic-blueprint",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "dimensions",
+    "adaptive_items",
+    "comparability_check_required",
+    "allowed_accommodations",
+    "default_on_invalid"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dimensions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "adaptive_items": {
+      "type": "boolean"
+    },
+    "comparability_check_required": {
+      "const": true
+    },
+    "allowed_accommodations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "default_on_invalid": {
+      "const": "attribution_guidee"
+    }
+  }
+}

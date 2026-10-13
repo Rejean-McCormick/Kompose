@@ -1,0 +1,131 @@
+{
+  "warning": "APERCU ILLUSTRATIF UNIQUEMENT. Aucun examen, score ou solveur n’a été exécuté.",
+  "session_snapshot": "validation_de_demo_hypothetique",
+  "number_of_participants": 20,
+  "quota_first_choice": 7,
+  "score_comparability": "hypothese_non_etablie",
+  "teacher_approved": false,
+  "publishable": false,
+  "assignments": [
+    {
+      "participant_id": "P-001",
+      "role_id": "ROLE-CARTOGRAPHE",
+      "channel": "choix_premier_tiers",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-002",
+      "role_id": "ROLE-ARCHIVISTE",
+      "channel": "choix_premier_tiers",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-003",
+      "role_id": "ROLE-MESSAGER",
+      "channel": "choix_premier_tiers",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-004",
+      "role_id": "ROLE-MEDIATRICE",
+      "channel": "choix_premier_tiers",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-005",
+      "role_id": "ROLE-ENQUETEUR",
+      "channel": "choix_premier_tiers",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-006",
+      "role_id": "ROLE-CHRONIQUEUSE",
+      "channel": "choix_premier_tiers",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-007",
+      "role_id": "ROLE-GEOGRAPHE",
+      "channel": "choix_premier_tiers",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-008",
+      "role_id": "ROLE-LIBRAIRE",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-009",
+      "role_id": "ROLE-OBSERVATRICE",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-010",
+      "role_id": "ROLE-TRADUCTEUR",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-011",
+      "role_id": "ROLE-DIPLOMATE",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-012",
+      "role_id": "ROLE-GUIDE",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-013",
+      "role_id": "ROLE-CHERCHEUSE",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-014",
+      "role_id": "ROLE-TEMOIN_DES_SOURCES",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-015",
+      "role_id": "ROLE-HORLOGER",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-016",
+      "role_id": "ROLE-COLLECTRICE",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-017",
+      "role_id": "ROLE-ARBITRE_DES_PREUVES",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-018",
+      "role_id": "ROLE-ILLUSTRATEUR",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-019",
+      "role_id": "ROLE-SCRIPTE",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    },
+    {
+      "participant_id": "P-020",
+      "role_id": "ROLE-CONSERVATEUR",
+      "channel": "proposition_automatique",
+      "reason_public": "Rôle proposé dans une simulation pédagogique sans données individuelles."
+    }
+  ]
+}
