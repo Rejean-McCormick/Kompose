@@ -1,0 +1,183 @@
+{
+  "plan": {
+    "format": "kompose.kontexte-preview/1",
+    "preview_only": true,
+    "canonical_runtime": "orgo",
+    "dispatch_allowed": false,
+    "scenario": {
+      "id": "boulangerie",
+      "title": "La boulangerie du village",
+      "fiction": "Mission de simulation du monde La boulangerie du village.",
+      "version": "0.1.0",
+      "synthetic": true,
+      "source_status": "scenario_skeleton_requires_pedagogical_review",
+      "sha256": "ba3971b26c586074867456526633c23562cd5a19d00edc952d9d2b478f2c839c"
+    },
+    "roles": [
+      {
+        "id": "boulanger",
+        "name": "Boulanger"
+      },
+      {
+        "id": "fermier",
+        "name": "Fermier"
+      },
+      {
+        "id": "comptable",
+        "name": "Comptable"
+      }
+    ],
+    "steps": [
+      {
+        "id": "phase-1",
+        "role": "boulanger",
+        "instruction": "Commander la farine",
+        "kind": "document",
+        "depends_on": [],
+        "curriculum_ids": [
+          "qc-pri-ma-006"
+        ],
+        "validation": "human_review"
+      },
+      {
+        "id": "phase-2",
+        "role": "fermier",
+        "instruction": "Préparer 12 pains",
+        "kind": "object",
+        "depends_on": [
+          "phase-1"
+        ],
+        "curriculum_ids": [
+          "qc-pri-ma-006"
+        ],
+        "validation": "human_review"
+      },
+      {
+        "id": "phase-3",
+        "role": "comptable",
+        "instruction": "Faire les comptes",
+        "kind": "object",
+        "depends_on": [
+          "phase-2"
+        ],
+        "curriculum_ids": [
+          "qc-pri-ma-006"
+        ],
+        "validation": "human_review"
+      }
+    ],
+    "fragments": [
+      {
+        "id": "indice-un",
+        "holder_role": "boulanger",
+        "release": "orgo_authorized",
+        "visibility": "participant"
+      },
+      {
+        "id": "indice-deux",
+        "holder_role": "fermier",
+        "release": "orgo_authorized",
+        "visibility": "participant"
+      }
+    ],
+    "joins": [
+      {
+        "id": "jointure-infos",
+        "fragment_ids": [
+          "indice-un",
+          "indice-deux"
+        ],
+        "unlock_step": "phase-3",
+        "enforcement": "orgo_not_implemented"
+      }
+    ],
+    "curriculum": {
+      "source_ids": [
+        "qc-pri-ma-006"
+      ],
+      "target_course_id": "qc-pri-ma-008",
+      "target_mapped": false,
+      "mastery_evaluated": false
+    },
+    "handoff": {
+      "owner": "orgo",
+      "mode": "review_only",
+      "needs": [
+        "reviewed_workflow_version",
+        "identity_and_authorization",
+        "fragment_release_guards",
+        "join_proofs",
+        "absence_fallback",
+        "atomic_events_outbox"
+      ],
+      "note": "Pour une fixture Orgo de préparation réelle, utiliser le compilateur canonique Kontexte orgo.scenario_fixture; ne pas dupliquer la création de Case/Task ici."
+    },
+    "warnings": [
+      "Scénario de squelette Kontexte, non validé pédagogiquement.",
+      "Dépendances, fragments et jointures ne sont PAS installés dans Orgo.",
+      "Aucun Task COMPLETED ne valide une compétence scolaire.",
+      "Écart de référentiel : cible qc-pri-ma-008, sources qc-pri-ma-006. Aucun remappage automatique."
+    ]
+  },
+  "replay": {
+    "format": "kompose.orgo-mock-replay/1",
+    "status": "demonstration_only",
+    "canonical_runtime": "orgo",
+    "orgo_operations_performed": 0,
+    "session_state": "preview_open",
+    "completed_steps": [
+      "phase-1",
+      "phase-2",
+      "phase-3"
+    ],
+    "ready_steps": [],
+    "authorized_fragment_ids": [
+      "indice-deux",
+      "indice-un"
+    ],
+    "evidence": {
+      "operational_tasks_completed": 3,
+      "school_competencies_mastered": null,
+      "validated_by_teacher_in_real_system": false
+    },
+    "accepted_event_count": 7,
+    "duplicate_count": 1,
+    "events": [
+      {
+        "event_id": "evt-01",
+        "sequence": 1,
+        "kind": "step_completed"
+      },
+      {
+        "event_id": "evt-02",
+        "sequence": 2,
+        "kind": "pause"
+      },
+      {
+        "event_id": "evt-03",
+        "sequence": 3,
+        "kind": "resume"
+      },
+      {
+        "event_id": "evt-04",
+        "sequence": 4,
+        "kind": "step_completed"
+      },
+      {
+        "event_id": "evt-05",
+        "sequence": 5,
+        "kind": "fragment_authorized"
+      },
+      {
+        "event_id": "evt-06",
+        "sequence": 6,
+        "kind": "fragment_authorized"
+      },
+      {
+        "event_id": "evt-07",
+        "sequence": 7,
+        "kind": "step_completed"
+      }
+    ]
+  }
+}

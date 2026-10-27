@@ -18,6 +18,10 @@ def _unique(items, label, errors):
         errors.append(f"{label}: identifiants dupliqués")
     return set(ids)
 
+def _has_text(value):
+    """Ne considère jamais une valeur vide ou uniquement blanche comme une preuve."""
+    return isinstance(value, str) and bool(value.strip())
+
 def publication_ready(kristal):
     """Barrage de publication: aucun savoir sans sources, droit et revue.
 
@@ -28,14 +32,18 @@ def publication_ready(kristal):
     sources = kristal.get("sources", [])
     review = kristal.get("editorial_review", {})
     if not sources or not all(s.get("verified") is True and s.get("rights_cleared") is True
-                              and s.get("citation") and "NE PAS PUBLIER" not in s.get("citation", "")
+                              and _has_text(s.get("citation"))
+                              and "NE PAS PUBLIER" not in s["citation"].upper()
                               for s in sources):
         return False
-    if review.get("status") != "approved" or not review.get("reviewed_at") or not review.get("reviewer_ref"):
+    if (review.get("status") != "approved"
+            or not _has_text(review.get("reviewed_at"))
+            or not _has_text(review.get("reviewer_ref"))):
         return False
     perspective = kristal.get("perspective", {})
     if perspective.get("type") == "nation_autochtone_identifiee":
-        if perspective.get("attribution") in (None, "", "À définir"):
+        if (not _has_text(perspective.get("attribution"))
+                or perspective["attribution"].strip() == "À définir"):
             return False
         if review.get("community_review_status") != "approved":
             return False

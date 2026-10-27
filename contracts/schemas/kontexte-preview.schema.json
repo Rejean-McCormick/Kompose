@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kompose.invalid/schemas/kontexte-preview.schema.json",
+  "title": "KOMPOSE - Kontexte preview, simulation only (B6)",
+  "type": "object",
+  "required": [
+    "format",
+    "preview_only",
+    "canonical_runtime",
+    "dispatch_allowed",
+    "scenario",
+    "roles",
+    "steps",
+    "fragments",
+    "joins",
+    "curriculum",
+    "handoff",
+    "warnings"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "kompose.kontexte-preview/1"
+    },
+    "preview_only": {
+      "const": true
+    },
+    "canonical_runtime": {
+      "const": "orgo"
+    },
+    "dispatch_allowed": {
+      "const": false
+    },
+    "scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "fiction",
+        "version",
+        "synthetic",
+        "source_status",
+        "sha256"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fiction": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "synthetic": {
+          "const": true
+        },
+        "source_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "role",
+          "instruction",
+          "kind",
+          "depends_on",
+          "curriculum_ids",
+          "validation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "instruction": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "depends_on": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "curriculum_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "validation": {
+            "enum": [
+              "human_review",
+              "deterministic_practice",
+              "logistical_only"
+            ]
+          }
+        }
+      }
+    },
+    "fragments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "holder_role",
+          "release",
+          "visibility"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "holder_role": {
+            "type": "string"
+          },
+          "release": {
+            "const": "orgo_authorized"
+          },
+          "visibility": {
+            "const": "participant"
+          }
+        }
+      }
+    },
+    "joins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "fragment_ids",
+          "unlock_step",
+          "enforcement"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fragment_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "unlock_step": {
+            "type": "string"
+          },
+          "enforcement": {
+            "const": "orgo_not_implemented"
+          }
+        }
+      }
+    },
+    "curriculum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_ids",
+        "target_course_id",
+        "target_mapped",
+        "mastery_evaluated"
+      ],
+      "properties": {
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "target_course_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "target_mapped": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "mastery_evaluated": {
+          "const": false
+        }
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner",
+        "mode",
+        "needs",
+        "note"
+      ],
+      "properties": {
+        "owner": {
+          "const": "orgo"
+        },
+        "mode": {
+          "const": "review_only"
+        },
+        "needs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

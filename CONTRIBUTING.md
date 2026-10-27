@@ -9,3 +9,5 @@
 7. Distinguer clairement **specification**, **simulation**, et **production** dans tout commit ou pull request.
 
 La décision de licence reste ouverte : consulter [LICENSE-TO-DECIDE.md](LICENSE-TO-DECIDE.md).
+
+8. Lorsqu’une capacité visible ou un invariant change, actualiser aussi les pages pertinentes de `wiki/`, vérifier les liens internes et conserver la distinction entre référence exécutable et produit déployable.

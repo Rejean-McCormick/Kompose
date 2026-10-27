@@ -1,0 +1,32 @@
+{
+  "format": "kontexte.role/1",
+  "id": "comptable",
+  "name": {
+    "fr-CA": "Comptable",
+    "en": "Accountant"
+  },
+  "intro": {
+    "fr-CA": "tenir le budget fictif",
+    "en": "You are playing the role of accountant in a learning story."
+  },
+  "theme": "neutral",
+  "actions": [
+    "additionner",
+    "vérifier",
+    "présenter"
+  ],
+  "objects": [
+    "facture",
+    "Klownkoins",
+    "registre"
+  ],
+  "problems": [
+    "budget dépassé",
+    "taxe fictive"
+  ],
+  "partners": [
+    "boulanger",
+    "sorciere",
+    "politicien"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "format": "kontexte.role/1",
+  "id": "boulanger",
+  "name": {
+    "fr-CA": "Boulanger",
+    "en": "Baker"
+  },
+  "intro": {
+    "fr-CA": "préparer les commandes de la boulangerie",
+    "en": "You are playing the role of baker in a learning story."
+  },
+  "theme": "boulanger",
+  "actions": [
+    "préparer des recettes",
+    "vendre",
+    "livrer"
+  ],
+  "objects": [
+    "pain",
+    "recette",
+    "ticket"
+  ],
+  "problems": [
+    "commande urgente",
+    "panne de four"
+  ],
+  "partners": [
+    "fermier",
+    "livreur",
+    "comptable"
+  ]
+}

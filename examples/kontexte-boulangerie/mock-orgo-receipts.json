@@ -1,0 +1,14 @@
+{
+  "format": "kompose.mock-orgo-receipts/1",
+  "notice": "Données entièrement fictives : aucune identité d'élève ni véritable statut Orgo.",
+  "receipts": [
+    {"event_id":"evt-01","sequence":1,"source":"orgo_mock_fixture","synthetic":true,"kind":"step_completed","step_id":"phase-1","role_id":"boulanger","human_reviewed":true},
+    {"event_id":"evt-02","sequence":2,"source":"orgo_mock_fixture","synthetic":true,"kind":"pause","teacher_authorized":true},
+    {"event_id":"evt-03","sequence":3,"source":"orgo_mock_fixture","synthetic":true,"kind":"resume","teacher_authorized":true},
+    {"event_id":"evt-04","sequence":4,"source":"orgo_mock_fixture","synthetic":true,"kind":"step_completed","step_id":"phase-2","role_id":"fermier","human_reviewed":true},
+    {"event_id":"evt-05","sequence":5,"source":"orgo_mock_fixture","synthetic":true,"kind":"fragment_authorized","fragment_id":"indice-un","role_id":"boulanger","teacher_authorized":true},
+    {"event_id":"evt-06","sequence":6,"source":"orgo_mock_fixture","synthetic":true,"kind":"fragment_authorized","fragment_id":"indice-deux","role_id":"fermier","teacher_authorized":true},
+    {"event_id":"evt-07","sequence":7,"source":"orgo_mock_fixture","synthetic":true,"kind":"step_completed","step_id":"phase-3","role_id":"comptable","human_reviewed":true},
+    {"event_id":"evt-07","sequence":7,"source":"orgo_mock_fixture","synthetic":true,"kind":"step_completed","step_id":"phase-3","role_id":"comptable","human_reviewed":true}
+  ]
+}

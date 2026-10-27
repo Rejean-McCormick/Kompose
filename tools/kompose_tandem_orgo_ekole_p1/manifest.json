@@ -1,0 +1,82 @@
+{
+  "id": "kompose_tandem_orgo_ekole_p1",
+  "title": "KOMPOSE / TANDEM / ORGO / EKOLE / P1",
+  "sentinel": "src/kompose/cli.py",
+  "test_copy": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "LICENSE-TO-DECIDE.md",
+    "src",
+    "tests",
+    "examples",
+    "docs",
+    "wiki",
+    "contracts"
+  ],
+  "commands": [
+    [
+      "-m",
+      "compileall",
+      "-q",
+      "src",
+      "tests"
+    ],
+    [
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-q"
+    ],
+    [
+      "-m",
+      "kompose.cli",
+      "verify-ekole-preview",
+      "examples/integrations/ekole-fete-sorciere.synthetic.json"
+    ],
+    [
+      "-m",
+      "kompose.cli",
+      "validate",
+      "examples/capsule-rivieres"
+    ]
+  ],
+  "entries": [
+    {
+      "path": "README.md",
+      "old": "bb5716a84ccaa1cc5aa3cf26a1b0a4685daa796fdac33bb7a160d42dfece5a74",
+      "new": "e390f580f5f7e31fdac1a589fa0b9b457d9625a4725ba71a38bd640773bf7e38"
+    },
+    {
+      "path": "src/kompose/cli.py",
+      "old": "c990429d6f79c153f78e091474a362f0b7831eae0689475595cd38c50174f2bb",
+      "new": "772e64f37c9cf209310596ab7b4355c8f04b13eb253b46c5d5b9a76d5954faac"
+    },
+    {
+      "path": "src/kompose/tandem_handoff.py",
+      "old": null,
+      "new": "007e48704b670cf75ff8d34ae37cf909f9697b66a8424d9898907f07f9557482"
+    },
+    {
+      "path": "tests/test_tandem_ekole_handoff.py",
+      "old": null,
+      "new": "0a29d4c09042b8b37e34f9c88ddcaa1d7a5f8714eb7ea4e4915b3417f09cfd02"
+    },
+    {
+      "path": "examples/integrations/ekole-fete-sorciere.synthetic.json",
+      "old": null,
+      "new": "c08396ba76fdbd734b5d015ddce8991e16f53a72937091bf02d65a5b40c1f0b4"
+    },
+    {
+      "path": "docs/adr/0008-tandem-orgo-operational-authority.md",
+      "old": null,
+      "new": "08b4afa703c00b43116895b5bba3a2492f76db310f01508fd8e0c857089a150b"
+    },
+    {
+      "path": "docs/TANDEM_P1_ORGO_EKOLE_ALIGNMENT.md",
+      "old": null,
+      "new": "bc714f776a096637a1f678163862b56131b39b07811b745f3cc82807ffa43554"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://kompose.invalid/schemas/orgo-mock-replay.schema.json",
+  "title":"KOMPOSE Orgo mock replay (B6) - not execution",
+  "type":"object", "additionalProperties":false,
+  "required":["format","status","canonical_runtime","orgo_operations_performed","session_state","completed_steps","ready_steps","authorized_fragment_ids","evidence","accepted_event_count","duplicate_count","events"],
+  "properties":{
+    "format":{"const":"kompose.orgo-mock-replay/1"},
+    "status":{"const":"demonstration_only"},
+    "canonical_runtime":{"const":"orgo"},
+    "orgo_operations_performed":{"const":0},
+    "session_state":{"enum":["preview_open","paused"]},
+    "completed_steps":{"type":"array","items":{"type":"string"}},
+    "ready_steps":{"type":"array","items":{"type":"string"}},
+    "authorized_fragment_ids":{"type":"array","items":{"type":"string"}},
+    "evidence":{"type":"object","additionalProperties":false,
+      "required":["operational_tasks_completed","school_competencies_mastered","validated_by_teacher_in_real_system"],
+      "properties":{"operational_tasks_completed":{"type":"integer","minimum":0},
+        "school_competencies_mastered":{"const":null},"validated_by_teacher_in_real_system":{"const":false}}},
+    "accepted_event_count":{"type":"integer","minimum":0},"duplicate_count":{"type":"integer","minimum":0},
+    "events":{"type":"array","items":{"type":"object","additionalProperties":false,
+      "required":["event_id","sequence","kind"],"properties":{"event_id":{"type":"string"},
+      "sequence":{"type":"integer","minimum":1},"kind":{"type":"string"}}}}
+  }
+}

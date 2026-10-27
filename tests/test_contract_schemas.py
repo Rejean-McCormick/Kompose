@@ -15,7 +15,7 @@ class SchemaValidationTests(unittest.TestCase):
         import jsonschema
         for p in SC.glob('*.schema.json'):
             with self.subTest(schema=p.name):
-                jsonschema.Draft202012Validator.check_schema(json.loads(p.read_text()))
+                jsonschema.Draft202012Validator.check_schema(json.loads(p.read_text(encoding="utf-8")))
 
     @unittest.skipUnless(importlib.util.find_spec('jsonschema'), 'Installer .[dev] pour valider JSON Schema')
     def test_examples_follow_public_schemas(self):
@@ -28,20 +28,20 @@ class SchemaValidationTests(unittest.TestCase):
         roots={'role':'roles','kristal':'kristals','mission':'missions','prompt':'prompts',
                'teacher-constraint':'constraints','phase':'phases'}
         for key, filename in schema_names.items():
-            schema=json.loads((SC/f'{key}.schema.json').read_text())
-            data=json.loads((EX/'capsule-rivieres'/filename).read_text())
+            schema=json.loads((SC/f'{key}.schema.json').read_text(encoding="utf-8"))
+            data=json.loads((EX/'capsule-rivieres'/filename).read_text(encoding="utf-8"))
             values = [data] if key in single else data[roots[key]]
             for i, value in enumerate(values):
                 with self.subTest(type=key, index=i):
                     jsonschema.validate(value,schema)
-        schema=json.loads((SC/'integration-manifest.schema.json').read_text())
-        manifest=json.loads((EX/'integrations/kor.adapter.example.json').read_text())
+        schema=json.loads((SC/'integration-manifest.schema.json').read_text(encoding="utf-8"))
+        manifest=json.loads((EX/'integrations/kor.adapter.example.json').read_text(encoding="utf-8"))
         jsonschema.validate(manifest,schema)
 
     @unittest.skipUnless(importlib.util.find_spec('yaml'), 'Installer .[dev] pour valider OpenAPI')
     def test_openapi_parses_and_paths_are_well_formed(self):
         import yaml
-        spec=yaml.safe_load((ROOT/'contracts/openapi.yaml').read_text())
+        spec=yaml.safe_load((ROOT/'contracts/openapi.yaml').read_text(encoding="utf-8"))
         self.assertEqual(spec['openapi'],'3.1.0')
         self.assertTrue(spec['info']['title'].startswith('KOMPOSE'))
         ids=[]
@@ -58,7 +58,7 @@ class SchemaValidationTests(unittest.TestCase):
         docs=[ROOT/'README.md',*ROOT.glob('docs/**/*.md'),ROOT/'contracts/README.md',
               ROOT/'examples/capsule-rivieres/README.md']
         for file in docs:
-            txt=file.read_text()
+            txt=file.read_text(encoding="utf-8")
             for link in re.findall(r'\[[^\]]+\]\(([^)#]+)(?:#[^)]*)?\)',txt):
                 if link.startswith(('https://','http://','mailto:')): continue
                 if link.startswith('#'): continue

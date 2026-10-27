@@ -20,3 +20,7 @@ La priorité est de garder ce dépôt comme **référence testable et indépenda
 3. Ajouter les tests positifs, négatifs, erreur et reprise.
 4. Lancer `make check` (ou les commandes équivalentes du README).
 5. Décrire explicitement ce qui reste **non opérationnel en production**.
+
+## Wiki
+
+Le wiki est maintenu dans le dépôt **distinct** `../Kompose.wiki/*.md`, quand il est disponible (et parfois `wiki/*.md` dans les anciennes copies). La navigation est dans `_Sidebar.md` et la documentation dans `README-WIKI-SOURCE.md`. Les tests de wiki doivent être ignorés explicitement si ce dépôt optionnel est absent, mais doivent échouer pour un wiki présent et invalide. Ne jamais confondre wiki local et wiki publié sur GitHub.

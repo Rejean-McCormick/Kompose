@@ -1,0 +1,32 @@
+{
+  "format": "kontexte.role/1",
+  "id": "fermier",
+  "name": {
+    "fr-CA": "Fermier",
+    "en": "Farmer"
+  },
+  "intro": {
+    "fr-CA": "organiser une ferme imaginaire",
+    "en": "You are playing the role of farmer in a learning story."
+  },
+  "theme": "neutral",
+  "actions": [
+    "semer",
+    "mesurer",
+    "récolter"
+  ],
+  "objects": [
+    "semences",
+    "pot",
+    "panier"
+  ],
+  "problems": [
+    "sécheresse fictive",
+    "commandes"
+  ],
+  "partners": [
+    "boulanger",
+    "jardinier",
+    "scientifique"
+  ]
+}

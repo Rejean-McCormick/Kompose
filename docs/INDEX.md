@@ -25,3 +25,7 @@
 | [20](20-plan-d-integration.md) | Plan et conditions de déploiement |
 
 [ADRs](adr/) · [Diagrammes](diagrammes/) · [Contrats](../contracts/README.md) · [Exemple](../examples/capsule-rivieres/README.md)
+
+## Wiki lisible pour les équipes
+
+Le wiki est un dépôt facultatif **séparé** : `../Kompose.wiki/Home.md`, `../Kompose.wiki/_Sidebar.md` et `../Kompose.wiki/README-WIKI-SOURCE.md` (chemins relatifs à la racine du dépôt Kompose). Il n'est pas livré avec le moteur; les spécifications de ce dossier restent la source normative des contrats et règles.

@@ -72,6 +72,28 @@ class ContractTests(unittest.TestCase):
         item['editorial_review']['community_review_status']='approved'
         self.assertTrue(publication_ready(item))
 
+    def test_publication_guard_rejects_whitespace_metadata(self):
+        item=copy.deepcopy(self.kristals[0])
+        item['status']='published'
+        for source in item['sources']:
+            source['verified']=True
+            source['rights_cleared']=True
+            source['citation']='Référence fictive validée pour test'
+        item['editorial_review']['status']='approved'
+        item['editorial_review']['reviewer_ref']='reviseur-de-test'
+        item['editorial_review']['reviewed_at']='2026-10-12T12:00:00Z'
+        self.assertTrue(publication_ready(item))
+        for obj, field in [(item['sources'][0], 'citation'),
+                           (item['editorial_review'], 'reviewer_ref'),
+                           (item['editorial_review'], 'reviewed_at')]:
+            original=obj[field]
+            with self.subTest(field=field):
+                obj[field]='  \t  '
+                self.assertFalse(publication_ready(item))
+                obj[field]=original
+        item['sources'][0]['citation']='ne pas publier (note de test)'
+        self.assertFalse(publication_ready(item))
+
     def test_prompt_dispatch_and_idempotence(self):
         first,seen=select_prompts(self.prompts,'kristal.acces_accorde','demandeur','e-1','P-001')
         self.assertEqual(len(first),1)

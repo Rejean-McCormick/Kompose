@@ -1,5 +1,10 @@
 # Changelog
 
+## Documentation post-0.2.0 — 2026-10-13 (non publiée comme nouvelle version)
+
+- Wiki KOMPOSE francophone prêt pour GitHub Wiki, avec accueil, navigation, modules, architecture, sécurité, intégration, guide de contribution, FAQ et feuille de route.
+- Ajout de vérifications de cohérence des liens et des pages du wiki. Aucun serveur ni nouveau mécanisme scolaire de production n’est impliqué.
+
 ## 0.2.0 — 2026-10-12 : KOMPOSE
 
 - Repositionnement du projet : **KOMPOSE**, application / référence d'orchestration indépendante; KOR comme client facultatif.

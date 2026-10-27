@@ -1,0 +1,82 @@
+{
+  "id": "kompose_tandem_interop_p1_v3",
+  "title": "KOMPOSE / TANDEM / ORGO / EKOLE / INTEROP+SECURITY / P1 V3",
+  "sentinel": "src/kompose/cli.py",
+  "test_copy": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "LICENSE-TO-DECIDE.md",
+    "src",
+    "tests",
+    "examples",
+    "docs",
+    "contracts",
+    "tools/kompose_tandem_interop_p1_v3/run_interop_security_tests.py"
+  ],
+  "commands": [
+    [
+      "-m",
+      "compileall",
+      "-q",
+      "src",
+      "tests"
+    ],
+    [
+      "tools/kompose_tandem_interop_p1_v3/run_interop_security_tests.py"
+    ],
+    [
+      "-m",
+      "kompose.cli",
+      "verify-ekole-preview",
+      "examples/integrations/ekole-fete-sorciere.synthetic.json"
+    ],
+    [
+      "-m",
+      "kompose.cli",
+      "validate",
+      "examples/capsule-rivieres"
+    ]
+  ],
+  "entries": [
+    {
+      "path": "README.md",
+      "old": "bb5716a84ccaa1cc5aa3cf26a1b0a4685daa796fdac33bb7a160d42dfece5a74",
+      "new": "a161ad9715240a8549498f0b65103708f71f3e64f19c7a358af11960e38ce3cf"
+    },
+    {
+      "path": "src/kompose/cli.py",
+      "old": "c990429d6f79c153f78e091474a362f0b7831eae0689475595cd38c50174f2bb",
+      "new": "62b51ce20b6594abcafe34e2baae340d0ec1bb63e1c7cf892ed9b0b9a08878ac"
+    },
+    {
+      "path": "src/kompose/tandem_handoff.py",
+      "old": null,
+      "new": "9cf1e36e112b00941f3107f0c3d2f6b0d5719903f16daf2e19fbcb1aa68f082d"
+    },
+    {
+      "path": "tests/test_tandem_ekole_handoff.py",
+      "old": null,
+      "new": "a6e999fba9601ded235f4ed2cef2c9683270144439dc002a503f196a60f85987"
+    },
+    {
+      "path": "examples/integrations/ekole-fete-sorciere.synthetic.json",
+      "old": null,
+      "new": "c08396ba76fdbd734b5d015ddce8991e16f53a72937091bf02d65a5b40c1f0b4"
+    },
+    {
+      "path": "docs/TANDEM_P1_ORGO_EKOLE_ALIGNMENT.md",
+      "old": null,
+      "new": "e7db4e1a98b5b1c38a9934543088141270ab943aab1e7f91dffc8abd5a7cee9a"
+    },
+    {
+      "path": "docs/adr/0008-tandem-orgo-operational-authority.md",
+      "old": null,
+      "new": "08b4afa703c00b43116895b5bba3a2492f76db310f01508fd8e0c857089a150b"
+    },
+    {
+      "path": "tools/kompose_tandem_interop_p1_v3/run_interop_security_tests.py",
+      "old": null,
+      "new": "5e4eb796207a29952877d4e28914d5191b8217a1c2861b11d29a170d28a8f39c"
+    }
+  ]
+}

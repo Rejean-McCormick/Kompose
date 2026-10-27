@@ -1,0 +1,112 @@
+{
+  "format": "kontexte.mission/1",
+  "id": "boulangerie",
+  "version": "0.1.0",
+  "synthetic": true,
+  "title": {
+    "fr-CA": "La boulangerie du village",
+    "en": "Village bakery"
+  },
+  "fiction": {
+    "fr-CA": "Mission de simulation du monde La boulangerie du village.",
+    "en": "Simulation mission: Village bakery."
+  },
+  "year_suggestion": 3,
+  "roles": [
+    "boulanger",
+    "fermier",
+    "comptable"
+  ],
+  "steps": [
+    {
+      "id": "phase-1",
+      "role": "boulanger",
+      "instruction": {
+        "fr-CA": "Commander la farine",
+        "en": "Commander la farine"
+      },
+      "kind": "document",
+      "depends_on": [],
+      "curriculum_ids": [
+        "qc-pri-ma-006"
+      ],
+      "validation": "human_review"
+    },
+    {
+      "id": "phase-2",
+      "role": "fermier",
+      "instruction": {
+        "fr-CA": "Préparer 12 pains",
+        "en": "Préparer 12 pains"
+      },
+      "kind": "object",
+      "depends_on": [
+        "phase-1"
+      ],
+      "curriculum_ids": [
+        "qc-pri-ma-006"
+      ],
+      "validation": "human_review"
+    },
+    {
+      "id": "phase-3",
+      "role": "comptable",
+      "instruction": {
+        "fr-CA": "Faire les comptes",
+        "en": "Faire les comptes"
+      },
+      "kind": "object",
+      "depends_on": [
+        "phase-2"
+      ],
+      "curriculum_ids": [
+        "qc-pri-ma-006"
+      ],
+      "validation": "human_review"
+    }
+  ],
+  "fragments": [
+    {
+      "id": "indice-un",
+      "holder_role": "boulanger",
+      "content": {
+        "fr-CA": "Le premier groupe détient une mesure.",
+        "en": "The first group has a measurement."
+      },
+      "release": "orgo_authorized",
+      "visibility": "participant"
+    },
+    {
+      "id": "indice-deux",
+      "holder_role": "fermier",
+      "content": {
+        "fr-CA": "Le deuxième groupe détient une quantité.",
+        "en": "The second group has a quantity."
+      },
+      "release": "orgo_authorized",
+      "visibility": "participant"
+    }
+  ],
+  "joins": [
+    {
+      "id": "jointure-infos",
+      "fragment_ids": [
+        "indice-un",
+        "indice-deux"
+      ],
+      "unlock_step": "phase-3"
+    }
+  ],
+  "adaptation": {
+    "accompagne": {
+      "instruction": "Consignes courtes, pictogrammes et aide disponible, sans étiquette publique."
+    },
+    "standard": {
+      "instruction": "Autonomie progressive et défis adaptés."
+    },
+    "approfondi": {
+      "instruction": "Information partielle, décisions en plusieurs étapes et justification."
+    }
+  },
+  "status": "scenario_skeleton_requires_pedagogical_review"
+}

@@ -1,0 +1,92 @@
+{
+  "id": "kompose_tandem_orgo_ekole_p1_v2",
+  "title": "KOMPOSE / TANDEM / ORGO / EKOLE / P1",
+  "sentinel": "src/kompose/cli.py",
+  "test_copy": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "LICENSE-TO-DECIDE.md",
+    "src",
+    "tests",
+    "examples",
+    "docs",
+    "wiki",
+    "contracts"
+  ],
+  "commands": [
+    [
+      "-m",
+      "compileall",
+      "-q",
+      "src",
+      "tests"
+    ],
+    [
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-q"
+    ],
+    [
+      "-m",
+      "kompose.cli",
+      "verify-ekole-preview",
+      "examples/integrations/ekole-fete-sorciere.synthetic.json"
+    ],
+    [
+      "-m",
+      "kompose.cli",
+      "validate",
+      "examples/capsule-rivieres"
+    ]
+  ],
+  "entries": [
+    {
+      "path": "README.md",
+      "old": "bb5716a84ccaa1cc5aa3cf26a1b0a4685daa796fdac33bb7a160d42dfece5a74",
+      "new": "e748d7a4830a4657bb37d674c41ce5d1b1373fa11d6b4d92db9b05db64ebf1f7"
+    },
+    {
+      "path": "docs/INDEX.md",
+      "old": "0b26013097c0612c92b7a95d352b71545e6e26bfd37009b3984bbc96f352432b",
+      "new": "ad37152675f8d92d1213438903e11bc30211f26240aa1067d141e323de076fe6"
+    },
+    {
+      "path": "docs/TANDEM_P1_ORGO_EKOLE_ALIGNMENT.md",
+      "old": null,
+      "new": "bc714f776a096637a1f678163862b56131b39b07811b745f3cc82807ffa43554"
+    },
+    {
+      "path": "docs/adr/0008-tandem-orgo-operational-authority.md",
+      "old": null,
+      "new": "08b4afa703c00b43116895b5bba3a2492f76db310f01508fd8e0c857089a150b"
+    },
+    {
+      "path": "examples/integrations/ekole-fete-sorciere.synthetic.json",
+      "old": null,
+      "new": "c08396ba76fdbd734b5d015ddce8991e16f53a72937091bf02d65a5b40c1f0b4"
+    },
+    {
+      "path": "src/kompose/cli.py",
+      "old": "c990429d6f79c153f78e091474a362f0b7831eae0689475595cd38c50174f2bb",
+      "new": "772e64f37c9cf209310596ab7b4355c8f04b13eb253b46c5d5b9a76d5954faac"
+    },
+    {
+      "path": "src/kompose/tandem_handoff.py",
+      "old": null,
+      "new": "007e48704b670cf75ff8d34ae37cf909f9697b66a8424d9898907f07f9557482"
+    },
+    {
+      "path": "tests/test_tandem_ekole_handoff.py",
+      "old": null,
+      "new": "0a29d4c09042b8b37e34f9c88ddcaa1d7a5f8714eb7ea4e4915b3417f09cfd02"
+    },
+    {
+      "path": "tests/test_wiki.py",
+      "old": "c272c3bd96b8b37fb205a5ea72053dcf05048cfabead78349a9a8e0b4e315119",
+      "new": "4ca4c974b18c58c24d00afd92589f466f27a726896b111a570eeadeb3e460bff"
+    }
+  ]
+}

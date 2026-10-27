@@ -1,0 +1,51 @@
+{
+  "schema_version": "orgo.scenario.v1",
+  "scenario": {
+    "id": "kontexte_boulangerie_7e517516bcb6",
+    "title": "La boulangerie du village",
+    "description": "Amorçage de préparation d'une simulation pédagogique. Les étapes conditionnelles ne sont PAS installées par cette fixture.",
+    "synthetic": true,
+    "epistemic_status": "synthetic_demo_fixture",
+    "correlation_id": "kontexte.boulangerie.7e517516bcb6"
+  },
+  "operations": [
+    {
+      "op": "create_case",
+      "ref": "case.main",
+      "input": {
+        "title": "[SIMULATION] La boulangerie du village",
+        "description": "Mission de simulation du monde La boulangerie du village.",
+        "label": "2.11",
+        "severity": "MINOR",
+        "visibility": "INTERNAL",
+        "metadata": {
+          "synthetic": true,
+          "epistemic_status": "synthetic_demo_fixture",
+          "mission_id": "boulangerie",
+          "content_version": "0.1.0",
+          "source": "kontexte",
+          "fixture_only": true
+        }
+      }
+    },
+    {
+      "op": "create_task",
+      "ref": "task.prepare",
+      "case_ref": "case.main",
+      "input": {
+        "title": "Réviser la mission Kontexte avant activation",
+        "description": "Inspecter rôles, enseignements, autorisations et sécurité; aucune tâche d'élève déclenchée automatiquement.",
+        "type": "scenario",
+        "category": "request",
+        "label": "2.11",
+        "priority": "LOW",
+        "metadata": {
+          "synthetic": true,
+          "mission_id": "boulangerie",
+          "pending_workflow_authoring": true,
+          "private_fragments_embedded": false
+        }
+      }
+    }
+  ]
+}
