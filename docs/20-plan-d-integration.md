@@ -1,6 +1,6 @@
 # 20 — Plan de développement et absorption progressive
 
-Statut : **repo de référence exécutable**, non application scolaire en production. Cette checklist est le chemin d'implémentation dans une équipe ou dans des applications clientes.
+Statut : **repo de référence exécutable**, non application scolaire en production. **Décision adoptée : Orgo porte l'autorité opérationnelle Tandem, KOMPOSE valide et simule les aperçus (ADR 0008).** Voir [l'inventaire des fonctions réellement codées](CURRENT_IMPLEMENTATION_AND_BOUNDARIES.md). Cette checklist est le chemin d'implémentation dans une équipe ou dans des applications clientes.
 
 | Étape | Livrable | Critère d'acceptation | État |
 |---|---|---|---|
@@ -8,7 +8,7 @@ Statut : **repo de référence exécutable**, non application scolaire en produc
 | B | Entry Door web | code expirant, SSO scolaire, rate-limit, reprise | à implémenter |
 | C | Diagnostic | mesures comparables ou repli sûr, aménagements | à implémenter |
 | D | Casting | solveur à contraintes, choix du tiers, explications privées, validation | à implémenter |
-| E | Orchestrateur de session | transactions, outbox, versions, pause/reprise | référence pure; serveur à implémenter |
+| E | Orchestration réelle **Orgo** (pas un second runtime KOMPOSE) | transactions, outbox, versions, pause/reprise et autorisations par Orgo | **simulation locale KOMPOSE seulement**; raccordement Orgo à qualifier |
 | F | Kristals documentaires | sources validées, gestion de droits, revue éditoriale | lecteur démo; chaîne éditoriale à implémenter |
 | G | Interfaces | console enseignant + UI Chromebook/tablette + accessibilité | à implémenter |
 | H | Partenaires | adaptateurs KOR ou autres, contrats et tests | manifeste exemple |

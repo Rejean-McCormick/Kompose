@@ -2,7 +2,9 @@
 
 ## Responsabilité centrale
 
-Le moteur de KOMPOSE connaît l'**état** et les **règles**; les interfaces partenaires, dont KOR si raccordé, choisissent leur présentation. Les événements du moteur servent aux interfaces, lecteurs de documents, services d'évaluation et notifications.
+**Portée : simulation de référence seulement.** Ce chapitre décrit les états fictifs du module `lifecycle` et les contrats cibles, **pas** les transitions réelles de Tandem. L'[ADR 0008](adr/0008-tandem-orgo-operational-authority.md) confie exclusivement à **Orgo** l'exécution réelle, les Tasks/Case/Signal, la distribution, les droits et la réconciliation. Voir aussi [l'état vérifié du code](CURRENT_IMPLEMENTATION_AND_BOUNDARIES.md).
+
+Le moteur de KOMPOSE connaît l'**état simulé** et les **règles locales**; les interfaces partenaires, dont KOR si raccordé, choisissent leur présentation. Les événements du moteur servent aux interfaces, lecteurs de documents, services d'évaluation et notifications.
 
 ## États
 
@@ -20,7 +22,7 @@ Chaque mission peut avoir `depends_on: [mission_id, ...]`. Le graphe doit être 
 
 Le cas d'un gardien indisponible produit une **proposition** de transfert, sous approbation enseignante; le contenu du Kristal reste identique et aucun droit de lecture n'est automatiquement octroyé.
 
-## Contrat d'exécution requis en production
+## Contrat d'exécution requis en production (à implémenter par l'autorité opérationnelle Orgo)
 
 - Écrire état, numéro de version, événement et trace d'audit **dans une transaction atomique**.
 - Traiter des événements dupliqués de façon idempotente; utiliser `event_id`, `session_version`, `correlation_id`.

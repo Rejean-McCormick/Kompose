@@ -24,6 +24,8 @@
 | [19](19-contrats-de-donnees.md) | Vie des données et contrats |
 | [20](20-plan-d-integration.md) | Plan et conditions de déploiement |
 
+**[Current implementation and operational boundaries (English)](CURRENT_IMPLEMENTATION_AND_BOUNDARIES.md)** · [Tandem P1 alignment](TANDEM_P1_ORGO_EKOLE_ALIGNMENT.md) · [Kontexte B6 architecture](b6/ARCHITECTURE.md) · [ADR 0008 (Orgo authority)](adr/0008-tandem-orgo-operational-authority.md)
+
 [ADRs](adr/) · [Diagrammes](diagrammes/) · [Contrats](../contracts/README.md) · [Exemple](../examples/capsule-rivieres/README.md)
 
 ## Wiki lisible pour les équipes

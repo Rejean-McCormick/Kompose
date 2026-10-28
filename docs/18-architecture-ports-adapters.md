@@ -1,6 +1,6 @@
 # 18 — Architecture indépendante : ports et adaptateurs
 
-KOMPOSE **n'est pas KOR**. C'est un moteur de coordination qui doit pouvoir fonctionner avec divers fournisseurs de contenus, d'identité et d'interfaces. Un partenaire peut ultérieurement reprendre ses contrats et invariants dans ses propres modules; cela constitue une **intégration/migration contrôlée**, pas une identité de marque commune.
+KOMPOSE **n'est pas KOR**. C'est un modèle de conception, validation et **coordination simulée** qui doit pouvoir fonctionner avec divers fournisseurs de contenus, d'identité et d'interfaces. Dans Tandem, **Orgo est seul propriétaire des opérations réelles** (ADR 0008) : les ports de stockage/outbox/session ci-dessous sont des **contrats proposés**, non des interfaces réseau implantées dans ce dépôt. Un partenaire peut ultérieurement reprendre ses contrats et invariants dans ses propres modules; cela constitue une **intégration/migration contrôlée**, pas une identité de marque commune.
 
 ## Ports entrants
 
@@ -28,7 +28,9 @@ KOMPOSE **n'est pas KOR**. C'est un moteur de coordination qui doit pouvoir fonc
 | Règles/attributions | moteur de rôles | commandes, décisions finales et trace d'audit |
 | Documents historiques | registre éditorial | identifiant et version épinglée, permissions |
 | Rendu de prompts | application cliente | définition, événement de déclenchement, destinataire autorisé |
-| États de session/mission | KOMPOSE | version et progression minimale |
+| États de simulation locale | KOMPOSE (`lifecycle`/`coordination`) | règles pures et progression fictive seulement |
+| Case / Task / Signal et états réels Tandem | **Orgo** | intention d'aperçu et vérification locale sans mutation opérationnelle |
+| World / WorldRelease | **Orgo_Worlds / système canonique** | références synthétiques, aucune preuve d'existence ni d'admission |
 
 ## Intégration possible à KOR
 

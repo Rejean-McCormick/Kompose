@@ -1,11 +1,13 @@
 # 03 — Modèle de domaine
 
+> **Attention : modèle conceptuel / simulation locale.** `Session`, `MissionProgress`, `Phase` et `Event` dans ce document ne désignent pas les agrégats opérationnels `Case`/`Task`/`Signal` d’Orgo. Pour Tandem, **Orgo est propriétaire des transitions et autorisations réelles** (voir [ADR 0008](adr/0008-tandem-orgo-operational-authority.md)).
+
 ## Concepts
 
 | Entité | Description | Responsable futur pressenti |
 |---|---|---|
 | `Capsule` | scénario, options, références aux rôles/Kristals/missions | catalogue pédagogique |
-| `Session` | exécution d'une capsule pour une cohorte, cycle de vie | orchestration |
+| `Session` | cycle de vie de référence / simulation locale | KOMPOSE pour simulation; Orgo pour exécution réelle Tandem |
 | `Participant` | identifiant pseudonyme propre à la séance | identité/séances |
 | `Role` | responsabilités, capacité, interactions, missions associées | moteur de rôles |
 | `DiagnosticBlueprint` | dimensions/questions/aménagements, version | évaluation |

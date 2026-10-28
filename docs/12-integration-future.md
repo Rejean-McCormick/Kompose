@@ -1,6 +1,6 @@
 # 12 — Migration et intégrations futures
 
-KOMPOSE est un **point de référence indépendant**. Si les capacités sont réparties plus tard entre plusieurs produits et services, ne pas déplacer les informations privées ou les responsabilités de sécurité avec la seule logique de narration.
+KOMPOSE est un **point de référence indépendant**. **Pour Tandem, la propriété des opérations réelles Case/Task/Signal est déjà décidée : Orgo, conformément à l’[ADR 0008](adr/0008-tandem-orgo-operational-authority.md).** Les autres propriétaires proposés restent à qualifier; voir [l’état du code](CURRENT_IMPLEMENTATION_AND_BOUNDARIES.md). Si les capacités sont réparties plus tard entre plusieurs produits et services, ne pas déplacer les informations privées ou les responsabilités de sécurité avec la seule logique de narration.
 
 ## Contrats à préserver
 
@@ -9,7 +9,7 @@ KOMPOSE est un **point de référence indépendant**. Si les capacités sont ré
 | Entry Door | passerelle école / IAM | code de capsule ≠ authentification |
 | Diagnostic | service pédagogique | scores non publics, comparabilité contrôlée |
 | Casting | service d'attribution | contraintes fortes, décisions explicables, validation |
-| Orchestration | service de séance | version, événements, pause/reprise et idempotence |
+| Orchestration **réelle** | **Orgo** (décision adoptée pour Tandem) | version, événements, pause/reprise et idempotence; aucun second runtime KOMPOSE |
 | Kristals | registre de contenu et lecteur | sources, droits, garde distincte du savoir |
 | Missions | moteur narratif | dépendances sans cycles et accès autorisé |
 | Console | application enseignant | contrôle et données minimisées |

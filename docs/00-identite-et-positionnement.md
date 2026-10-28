@@ -1,6 +1,6 @@
 # 00 — KOMPOSE : identité et positionnement
 
-**KOMPOSE** est une application / capacité indépendante d'orchestration pédagogique et narrative pour expériences collectives guidées. **KOR est une autre application** susceptible de se brancher à KOMPOSE; ce n'est ni un synonyme, ni un sous-module obligatoire.
+**KOMPOSE** est une application / capacité indépendante de **conception, validation et simulation locale** de capsules pédagogiques et narratives. L'« orchestration » historique est une **modélisation de référence**, pas une autorité d'exécution opérationnelle Tandem. **Orgo est l'unique propriétaire des tâches, transitions, dispatchs et autorisations opérationnels réels** (voir [ADR 0008](adr/0008-tandem-orgo-operational-authority.md) et [état du code](CURRENT_IMPLEMENTATION_AND_BOUNDARIES.md)). **KOR est une autre application** susceptible de se brancher à KOMPOSE; ce n'est ni un synonyme, ni un sous-module obligatoire.
 
 ## Proposition
 
@@ -13,7 +13,7 @@ Les contenus ne doivent pas être indissociables du produit : une capsule de n'i
 1. **Entry Door** — arrivée, code éphémère, identité validée par un fournisseur scolaire, présentation de la capsule et des rôles.
 2. **Diagnostic** — adaptation individuelle, aménagements, contrôles de comparabilité, sans établir une hiérarchie permanente entre enfants.
 3. **Casting** — choix éventuel du premier tiers, répartition du reste, préférences et contraintes, validation enseignante.
-4. **Orchestration** — règles, déclencheurs, événements et progression des séances.
+4. **Coordination simulée** — règles, déclencheurs, événements et progression **locale fictive**; aucune mutation réelle des tâches Orgo.
 5. **Kristals** — acquisition, garde transférable, accès et questions/réponses éditées et traçables.
 6. **Interactions** — rendez-vous, demandes de savoir et dépendances coopératives; la conversation libre est hors du moteur de règles.
 7. **Adaptation continue** — rythme, modalités, accessibilité et parcours alternatifs, sans réévaluation dissimulée.

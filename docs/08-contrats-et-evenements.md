@@ -1,6 +1,6 @@
 # 08 — Contrats d'intégration, API et événements
 
-Le **contrat proposé** est dans `contracts/openapi.yaml` et `contracts/events.md`. Il sert de frontière entre les futurs services KOMPOSE; ce dépôt n'expose aucun serveur.
+Le **contrat proposé** est dans `contracts/openapi.yaml` et `contracts/events.md`. Il sert de frontière entre les futurs services; ce dépôt n'expose aucun serveur. **Ces routes ne sont pas des endpoints Orgo** et n’accordent aucune autorité opérationnelle à KOMPOSE. Dans Tandem, Orgo est le propriétaire des opérations réelles, selon l’[ADR 0008](adr/0008-tandem-orgo-operational-authority.md).
 
 ## Périmètres de sécurité (cible)
 
