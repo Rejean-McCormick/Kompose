@@ -9,9 +9,41 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
-from kompose.tandem_handoff import verify_teacher_preview,load_teacher_preview,TandemHandoffError
+from kompose.tandem_handoff import verify_teacher_preview,load_teacher_preview,verify_initial_design_preview,TandemHandoffError
 
 FIXTURE=ROOT/'examples/integrations/ekole-fete-sorciere.synthetic.json'
+
+class InitialDesignGateTest(unittest.TestCase):
+    def setUp(self):
+        self.doc=json.loads(FIXTURE.read_text(encoding='utf8'))
+        self.mission={'format':'kontexte.mission/1','synthetic':True,
+                      'safety':{'real_spending':False,'real_taxes':False,'publication_default':'private'},
+                      'roles':sorted({t['role_code'] for t in self.doc['tasks']}),
+                      'steps':[{'id':t['task_ref'],'role':t['role_code'],
+                                'depends_on':[] if t['state']=='ready' else [self.doc['tasks'][0]['task_ref']]}
+                               for t in self.doc['tasks']]}
+    def test_initial_state_verified_but_not_admitted(self):
+        # Fixture's waiting tasks must depend on an earlier step.
+        result=verify_initial_design_preview(self.doc,self.mission)
+        self.assertTrue(result['initial_state_checked'])
+        self.assertFalse(result['dispatch_allowed'])
+    def test_unsupported_progress_and_private_fragment_denied(self):
+        import copy
+        for mutate in (lambda d:d['tasks'][0].update(state='done'),
+                       lambda d:d['tasks'][0].update(fragment_refs=['secret']),
+                       lambda d:d['tasks'].reverse()):
+            doc=copy.deepcopy(self.doc)
+            mutate(doc)
+            with self.assertRaises(TandemHandoffError):verify_initial_design_preview(doc,self.mission)
+    def test_missing_source_dependency_denied(self):
+        self.mission['steps'][0]['depends_on']=['later-step']
+        with self.assertRaises(TandemHandoffError):verify_initial_design_preview(self.doc,self.mission)
+        self.mission['steps'][0]['depends_on']=[{'not':'hashable'}]
+        with self.assertRaises(TandemHandoffError):verify_initial_design_preview(self.doc,self.mission)
+        self.mission['steps'][0]['depends_on']=[]
+        self.mission['safety']['publication_default']='public'
+        with self.assertRaises(TandemHandoffError):verify_initial_design_preview(self.doc,self.mission)
+
 
 class EkolePreviewGateTest(unittest.TestCase):
     def setUp(self):self.value=json.loads(FIXTURE.read_text(encoding='utf8'))

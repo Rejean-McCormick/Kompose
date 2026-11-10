@@ -116,3 +116,6 @@ The functions in `lifecycle.py` and `coordination.py` are **reference simulation
 The **English wiki is a separate, optional Git repository**, normally cloned next to this source checkout as `../Kompose.wiki/`. Start with `../Kompose.wiki/Home.md` and its `_Sidebar.md`; its absence causes wiki-specific tests to be **skipped**, not passed. Normative contracts remain in `contracts/` and `docs/`. The collected archive is not evidence that the wiki has been published online.
 
 No redistribution license has been selected; see [LICENSE-TO-DECIDE.md](LICENSE-TO-DECIDE.md). All examples are fictional and must never be presented as approved classroom content.
+## Final-system integration reference (Branch 06)
+
+The [English education-boundary specification](docs/FINAL_SYSTEM_EDUCATION_ALIGNMENT.md) describes implemented safety checks, local test instructions, cross-owner responsibilities and still-unapproved interfaces. It does **not** assert a deployed Orgo/Moodle workflow.
